@@ -31,21 +31,6 @@ Redis (Remote Dictionary Server) is an open-source, in-memory data structure sto
 docker run -d -p 6379:6379 --name my-redis redis:latest
 ```
 
-### macOS:
-```bash
-# Using Homebrew
-brew install redis
-brew services start redis
-```
-
-### Linux:
-```bash
-# Using apt (Ubuntu/Debian)
-sudo apt update
-sudo apt install redis-server
-sudo systemctl start redis
-```
-
 ## Connecting to Redis:
 
 ```bash
@@ -200,17 +185,3 @@ save 60 10000
 7. **Implement monitoring** - Monitor key metrics like memory usage, hit rate, and command latency.
 8. **Use Redis Sentinel for high availability** - Deploy Sentinel for automatic failover in production.
 
-## Troubleshooting:
-
-| Issue | Solution |
-|-------|----------|
-| `(error) NOAUTH Authentication required` | Use `AUTH password` to authenticate |
-| `(error) OOM command not allowed` | Increase `maxmemory` or delete unnecessary keys |
-| `(error) WRONGTYPE Operation against a key holding the wrong kind of value` | Ensure correct data type before operations |
-| `(error) MOVED key 1001-cluster-a-1` | Use Redis Cluster client with cluster support |
-| `Redis server is not running` | Start Redis server using `redis-server` |
-
-## Performance Tuning:
-1. **Disable persistence if not needed** - RDB and AOF increase memory usage and I/O operations.
-2. **Optimize RDB snapshots** - Tune save intervals and memory limits for RDB persistence.
-3. **Use
